@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>My Portfolio</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about-me">About Me</a></li>
+                    <li><a href="#activities">Activities</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="section">
+            <h2>Welcome to My Portfolio!</h2>
+            <p>This is my personal portfolio where you can learn more about me, my activities, and my contact. Explore the sections below to know more.</p>
+        </section>
+
+        <section id="about-me" class="section">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <img src="/assets/po.jpg" alt="John Paul L. Aguilar" height="150px" width="150px">
+                <p>Hi, I'm John Paul L. Aguilar, a web developer who loves building clean and user-friendly websites. I work with HTML, CSS, JavaScript, and React. I'm always learning and improving my skills to create websites that look good and work well.</p>
+            </div>
+            
+            <div class="Hobbies">
+                <h3>Hobbies</h3>
+                <p>During my free time, I enjoy playing volleyball and dancing two activities that keep me active and help me stay in shape. Volleyball teaches me teamwork, strategy, and quick decision-making, while dancing enhances my coordination, creativity, and discipline. Both hobbies allow me to relax and recharge, while also building skills that I can apply to my work and daily life.
+                </p>
+                
+                <ul>
+                    <li>
+                        <strong>Volleyball:</strong> I enjoy playing volleyball because it helps me stay active and teaches me teamwork and communication. The sport’s fast pace improves my decision-making skills, which are also useful when solving problems in web development.
+                        <img src="/assets/vol.jpg" alt="Badminton" height="150px" width="200px">
+                    </li>
+
+                    <li>
+                        <strong>Dancing:</strong> Dancing is a passion of mine because it allows me to stay active while expressing creativity. It helps improve my coordination and rhythm, which are valuable when working on precise tasks like coding. Dancing also teaches me discipline and patience, as learning new moves requires focus and practice—qualities that I apply to problem-solving in web development.
+                        <img src="/assets/dan.png" alt="Volleyball" height="150px" width="200px">
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+<section id="activities" class="section">
+    <h2>Activities</h2>
+    <p>In my free time, I enjoy contributing to open-source projects, attending web development workshops, and exploring new technologies. I'm also a keen problem solver, often participating in coding challenges like those on CodeWars.</p>
+    
+    <div class="activities-images">
+        <div class="activity-item">
+            <a href="/assets/les.png" class="lightbox" target="_blank">
+                <img src="/assets/les.png" alt="Activity Image 1" height="150px" width="200px">
+            </a>
+            <p>Lesson 2 Assessment 1 (Individual)</p>
+        </div>
+
+    </div>
+</section>
+
+<section id="contact" class="section">
+    <h2>Contact</h2>
+    <p>Feel free to reach out to me if you have any questions or would like to collaborate on a project.</p>
+    <div class="contact-details">
+        <p>Email: <a href="mailto:johnpaulaguilar102@gmail.com">johnpaulaguilar102@gmail.com</a></p>
+        <p>Phone: 09168973080</p>
+        <p>Facebook: John Paul L. Aguilar</a></p>
+    </div>
+</section>
+
+    </main>
+
+    <footer>
+        <div class="Container">
+            <p>&copy; 2025 John Paul L. Aguilar. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const lightboxImages = document.querySelectorAll('.lightbox');
+
+        lightboxImages.forEach(image => {
+            image.addEventListener('click', (e) => {
+                e.preventDefault();
+                const imgSrc = image.getAttribute('href');
+                openLightbox(imgSrc);
+            });
+        });
+
+        function openLightbox(imgSrc) {
+            const lightboxOverlay = document.createElement('div');
+            lightboxOverlay.classList.add('lightbox-overlay');
+            lightboxOverlay.innerHTML = `
+                <div class="lightbox-content">
+                    <img src="${imgSrc}" alt="Enlarged Image">
+                    <button class="close-btn">X</button>
+                </div>
+            `;
+            document.body.appendChild(lightboxOverlay);
+
+            const closeBtn = lightboxOverlay.querySelector('.close-btn');
+            closeBtn.addEventListener('click', () => {
+                document.body.removeChild(lightboxOverlay);
+            });
+        }
+    });
+</script>
+
+<style>
+    .lightbox-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    .lightbox-content img {
+        max-width: 90%;
+        max-height: 80%;
+        border-radius: 8px;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: #fff;
+        border: none;
+        padding: 10px;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    .close-btn:hover {
+        background-color: #ff9f00;
+    }
+</style>
+</body>
+
+</html>
